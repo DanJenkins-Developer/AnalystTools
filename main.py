@@ -1,5 +1,10 @@
 on = True
 
+def collectHostInfo():
+        
+        hostname = (input("Enter host.name :: "))
+        return hostname
+
 def collectProcessInfo():
         
         processName = (input("Enter process name :: "))
@@ -13,7 +18,7 @@ def formatQueryFromProcess(process):
     return query
 
 
-def buildProcessLineage(processQueries):
+def buildProcessLineage(processQueries, hostname):
 
     lineage = ""
 
@@ -23,37 +28,27 @@ def buildProcessLineage(processQueries):
         else:
             lineage = lineage + f"{query}"
 
-    hostname = input("Enter a hostname to include in process lineage query or press enter to skip :: ")  
-
+    
     if (hostname !=  ''):
          lineage = f"{hostname} and ({lineage})"
 
     return lineage
 
-while (on):
 
-    queryList = []
 
-    while(True):
+queryList = []
+host = collectHostInfo()
 
-        process = collectProcessInfo()
-        queryList.append(formatQueryFromProcess(process))
 
-        userChoise = input("Add another process? Y/N :: ")    
-        if(userChoise == 'Y' or userChoise == 'y'):
-            continue
-        else:
-             break
-        
-    print(queryList)
+while True:
+    process = collectProcessInfo()
+    queryList.append(formatQueryFromProcess(process))
+    processLineage = buildProcessLineage(queryList, host)
 
-    processLineage = buildProcessLineage(queryList)
-    
+    print(f"Current process lineage :: {processLineage}")
+
+    userChoise = input("Add another process? Y/N :: ")  
+    if userChoise.lower() != 'y':
+         break
+
     print(f"Final process lineage :: {processLineage}")
-
-        
-
-    on = False
-    
-
-
