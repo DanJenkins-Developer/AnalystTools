@@ -1,19 +1,18 @@
 on = True
 
 def collectProcessInfo():
+        
         processName = (input("Enter process name :: "))
         processPid = (input("Enter process PID :: "))
+
         process = {'process.name':processName, 'process.pid':processPid}
+
         return process
 
-def formatProcessInfo(processes):
+def formatProcessInfo(name, pid):
     
-    processList = []
-    
-    for process in processes:
-        processList.append(f"(process.name: {process['process.name']} and process.pid: {process['process.pid']})")
-
-    return processList
+    query = f"(process.name: {name} and process.pid: {pid})"
+    return query
 
 
 def printProcessInfoPretty(processes):
@@ -22,25 +21,26 @@ def printProcessInfoPretty(processes):
         print(f"Process PID :: {process['process.pid']}")
 
 
-def buildProcessLineage(formatedProcesses):
-    query = ""
+def buildProcessLineage(processQueries):
 
-    for index, process in enumerate(formatedProcesses):
-        if (index <= len(formatedProcesses) - 2):
-            query = query + f"{process} or "
+    lineage = ""
+
+    for index, query in enumerate(processQueries):
+        if (index <= len(processQueries) - 2):
+            lineage = lineage + f"{query} or "
         else:
-            query = query + f"{process}"
+            lineage = lineage + f"{query}"
 
-    return query
+    return lineage
 
 while (on):
-    
-    processList = []
+
+    queryList = []
 
     while(True):
 
         process = collectProcessInfo()
-        processList.append(process)
+        queryList.append(formatProcessInfo(process['process.name'], process['process.pid']))
 
         userChoise = input("Add another process? Y/N :: ")    
         if(userChoise == 'Y' or userChoise == 'y'):
@@ -48,12 +48,12 @@ while (on):
         else:
              break
         
-    formattedProcessList = formatProcessInfo(processList)
-    print(formattedProcessList)
+    print(queryList)
 
-    finalQuery = buildProcessLineage(formattedProcessList)
-    print(finalQuery)
+    processLineage = buildProcessLineage(queryList)
+    print(processLineage)
 
+        
 
     on = False
     
