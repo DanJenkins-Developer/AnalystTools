@@ -11,17 +11,43 @@ def collectInfo():
         file_lines = file.read().splitlines()
         file.close()
 
-        print(file_lines)
-
-        print(f"The values belong to the {file_lines[0]} fild correct Y/N?")
-        
-        
-
-        return 
+        return file_lines
 
 def processColumn(columnData):
+
+        print(columnData[0] + "\n")
+
+        for item in columnData[1:]:
+                print(item)
+
+        print("\n")
+
+        for item in columnData[1:]:
+                print(item.replace("\"", ""))
+
+        print("\n" + "unique items:")
+
+        query = ""
+        res = list(dict.fromkeys(columnData[1:]))
+        for item in res:
+                
+                print(item)
+
+        for index, item in enumerate(res):
+                if (index != len(res) - 1):
+                        query = query + f"{item} or "
+                else:
+                        query = query + f"{item}"
+
+        fieldName = columnData[0].replace("\"", "")
+        query = f"{fieldName}: ({query})"
+
+        print("\n" + query)
+                
         return
 
 
-collectInfo()
+data = collectInfo()
+
+processColumn(data)
         
