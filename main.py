@@ -23,7 +23,7 @@ def buildProcessLineage(processQueries, hostname):
     lineage = ""
 
     for index, query in enumerate(processQueries):
-        if (index <= len(processQueries) - 2):
+        if (index != len(processQueries) - 1):
             lineage = lineage + f"{query} or "
         else:
             lineage = lineage + f"{query}"
@@ -51,4 +51,5 @@ while True:
     if userChoise.lower() != 'y':
          break
 
-    print(f"Final process lineage :: {processLineage}")
+    
+print(f"Final process lineage :: {processLineage}")
