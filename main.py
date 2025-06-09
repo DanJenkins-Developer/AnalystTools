@@ -30,7 +30,7 @@ def buildProcessLineage(processQueries, hostname):
 
     
     if (hostname !=  ''):
-         lineage = f"{hostname} and ({lineage})"
+         lineage = f"host.name: {hostname} and ({lineage})"
 
     return lineage
 
