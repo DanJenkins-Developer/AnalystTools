@@ -1,0 +1,3 @@
+- Make queries editable (Typos)
+
+- If PID is entered with a comma, remove it. 
