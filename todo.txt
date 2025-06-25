@@ -3,3 +3,7 @@
 - If PID is entered with a comma, remove it. 
 
 - Add format: "Execution went `` -> `` -> `` -> `` -> ``"
+
+- Get file directories
+
+Get directory response action.
