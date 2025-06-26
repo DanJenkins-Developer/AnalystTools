@@ -6,4 +6,6 @@
 
 - Get file directories
 
-Get directory response action.
+Get directory response action. Create powershell script that gets the size of a directory (or size of all files 
+together within a directory). If the size is below a certain threshold, zip the contents of the directory and store
+in a temporary location that can be downloaded from. 
