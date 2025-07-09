@@ -23,7 +23,7 @@
 <br />
 
 
-<h3 align="center">Cyber Paste</h3>
+<h3 align="center">Matthew's Cyber Paste</h3>
 
   <p align="center">
     A set of hotkeys I've made to make formatting easier and to help with investiagations.
@@ -50,7 +50,7 @@
 ## Notes on Formatting
 Anytime \t or \n is seen, this is to show the formatting kibana has for the respective object, if you just copy and pasted it, and does not need to be added to get the hotkeys to function properly.
 
-Arrows( → , &#8627; ) indicate what that line is transformed into after the hotkey. Arrows( → , &#8627; ) without anything to their left indicates that this hotkey inserts the stuff on the right of the Arrow( → , &#8627; ) in its formatting process. Additionally original text copied, will appear <span style="color: red">Red</span> and formatted text will appear <span style="color: green">Green</span>
+Arrows( → , &#8627; ) indicate what that line is transformed into after the hotkey. Arrows( → , &#8627; ) without anything to their left indicates that this hotkey inserts the stuff on the right of the Arrow( → , &#8627; ) in its formatting process. 
 
 Curly Braces( { } ) indicate text that is not in the formating but that helps with clarity.
 
