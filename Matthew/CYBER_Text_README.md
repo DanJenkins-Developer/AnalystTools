@@ -36,7 +36,8 @@
 1. Download the Files from GitHub
 2. Download and Install [Python](https://www.python.org/downloads/)
 3. In a terminal Install [pyperclip](https://pypi.org/project/pyperclip/), and [pynput](https://pypi.org/project/pynput/). <br>
-  ```pip install pyperclip pynput ```
+  ```pip install pyperclip pynput ```<br>
+  I believe that `requirments.txt` should cover this step.
 4. In the terminal, navigate to the location of Cyber_Paste.py <br>
   `cd <path>` 
 5. In the terminal start the program (You should see a list of the available hotkeys)<br>
