@@ -118,6 +118,8 @@ All hotkeys used after copying their respective information to your clipboard, t
 ### `ctrl+alt+z`: Two Column Format
 
 ### `ctrl+alt+u`: Unique Columns Format
+
+### `ctrl+alt+b`: Discover Row with Backticking
 - This hotkey puts backticks( \` ) around each field when copying from a row in discover. <br>
 &ensp; eg. <br>
 &ensp; &ensp; <span style="color: red"> Timestamp @ 10 \t exampleField1 \t example field 2</span> → <span style="color: green">\`Timestamp @ 10\` \`exampleField1\` \`example field 2\`</span>
