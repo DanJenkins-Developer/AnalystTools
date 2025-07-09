@@ -16,7 +16,7 @@ def format_data(text):
         pass
     elif text == "Endpoint.policy.applied.artifacts.global.channel	candidate":
         pass
-    elif text == "Field Value":
+    elif text == "Field\tValue":
         pass
     else: 
         words = text.split("\t")
@@ -31,7 +31,8 @@ def format_data(text):
             return
         frmtStr = ""
         if len(impoWrds) > 1:
-            if impoWrds[1] == "parent" and (impoWrds[0] == "process" or impoWrds[0] == "command"):
+            # print(impoWrds)
+            if (impoWrds[1] == "parent" or impoWrds[1] == "command") and impoWrds[0] == "process":
                 impoWrds.pop(0)
         for i in range(len(impoWrds)):
             if impoWrds[i] == "name":
@@ -296,6 +297,16 @@ def unique():
     pyperclip.copy(output)
     # print("Unique Values Copied to Clipboard!")
 
+def discover_row_backticking():
+    clipboard_text = pyperclip.paste()
+    fields = clipboard_text.split("\t")
+    formated_text = ""
+    for i in range(0,len(fields)):
+        formated_text += "`" + fields[i] + "` "
+
+    pyperclip.copy(formated_text)
+    # print("Discover Row with Backticks Copied to Clipboard!")
+
 print("Ready to Format")
 print("ctrl+alt+v: Format")
 print("ctrl+alt+shift+v: Observation Statement Format")
@@ -314,6 +325,7 @@ print("ctrl+alt+r: Remove ' - ' Crom Column Format")
 print("ctrl+alt+shift+w: Source-Destination IP Format")
 print("ctrl+alt+z: Two Column Format")
 print("ctrl+alt+u: Unique Columns Format")
+print("ctrl+alt+b: Discover Row with Backticks Format")
 
 def exit():
     listener.stop()
@@ -364,6 +376,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<shift>+<alt>+w': source_dest_IP,
         '<ctrl>+<alt>+z': two_column,
         '<ctrl>+<alt>+u': unique,
+        '<ctrl>+<alt>+b': discover_row_backticking,
         '<ctrl>+<alt>+<shift>+<esc>': exit}) as listener:
     listener.join()
 
