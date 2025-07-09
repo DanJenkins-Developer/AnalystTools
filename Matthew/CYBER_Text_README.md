@@ -50,7 +50,7 @@
 ## Notes on Formatting
 Anytime \t or \n is seen, this is to show the formatting kibana has for the respective object, if you just copy and pasted it, and does not need to be added to get the hotkeys to function properly.
 
-Arrows( → , &#8627; ) indicate what that line is transformed into after the hotkey. Arrows( → , &#8627; ) without anything to their left indicates that this hotkey inserts the stuff on the right of the Arrow( → , &#8627; ) in its formatting process. Additionally original text copied, will appear <span style="color: red">Red</span> and formatted text will appear <span style="color: green">Green</span>
+Arrows( → , &#8627; ) indicate what that line is transformed into after the hotkey. Arrows( → , &#8627; ) without anything to their left indicates that this hotkey inserts the stuff on the right of the Arrow( → , &#8627; ) in its formatting process. Additionally original text copied, will appear <span style="color: red">Red</span> and formatted text will appear <span style="color: green">Green</span>, if opened in VSCode.
 
 Curly Braces( { } ) indicate text that is not in the formating but that helps with clarity.
 
@@ -85,12 +85,18 @@ All hotkeys used after copying their respective information to your clipboard, t
 &ensp; &ensp; &#8627; <span style="color: green">File Path \`exampleFile.path\` flagged for {you would insert the alert name here} on Host \`exampleHost\` under User \`exampleUser\` at Group \`exampleGroup\`.</span>
 
 ### `ctrl+win+shift+v`: Duplicate Format (MacOS Cmd Key)
+- This hotkey takes the url for a hive case and optionally the case number and formates into a duplicate hive case link.
+- To add the case number, copy it to your clipboard and then use the `Extra Text` hotkey to store it. Then copy the url and use this hotkey.
+- <span style="color: green">Duplicate of \[Hive Case #{value stored with the Extra Text Hotkey}\](https[://]hive.cyber.tamus[.]edu/)</span>
 
 ### `ctrl+alt+shift+a`: Extra Text Format
+- This hotkey stores your clipboard for another hotkey to use later.
 
 ### `ctrl+alt+1`: Extra Text 1 Format
+- This hotkey is to store additional info, currently only used to store the User Job Title in the `Person Info` hotkey.
 
 ### `ctrl+alt+2`: Extra Text 2 Format
+- This hotkey is to store additional info, currently only used to store the User Department in the `Person Info` hotkey.
 
 ### `ctrl+alt+c`: Column Format
 
@@ -113,6 +119,12 @@ All hotkeys used after copying their respective information to your clipboard, t
 ### `ctrl+alt+z`: Two Column Format
 
 ### `ctrl+alt+u`: Unique Columns Format
+
+### `ctrl+alt+b`: Discover Row with Backticking
+- This hotkey puts backticks( \` ) around each field when copying from a row in discover. <br>
+&ensp; eg. <br>
+&ensp; &ensp; <span style="color: red"> Timestamp @ 10 \t exampleField1 \t example field 2</span> → <span style="color: green">\`Timestamp @ 10\` \`exampleField1\` \`example field 2\`</span>
+- Also works with any tab deliniated line.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
