@@ -16,6 +16,8 @@ def format_data(text):
         pass
     elif text == "Endpoint.policy.applied.artifacts.global.channel	candidate":
         pass
+    elif text == "Field Value":
+        pass
     else: 
         words = text.split("\t")
         impoWrds1 = words[0].split(".")

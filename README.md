@@ -30,7 +30,6 @@
   </p>
 </div>
 
-#This is a Test
 ## Installation
 
 1. Download the Files from GitHub
