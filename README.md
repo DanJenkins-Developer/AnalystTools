@@ -35,7 +35,8 @@
 1. Download the Files from GitHub
 2. Download and Install [Python](https://www.python.org/downloads/)
 3. In a terminal Install [pyperclip](https://pypi.org/project/pyperclip/), and [pynput](https://pypi.org/project/pynput/). <br>
-  ```pip install pyperclip pynput ```
+  ```pip install pyperclip pynput ``` <br>
+  I believe that `requirments.txt` should cover this step.
 4. In the terminal, navigate to the location of Cyber_Paste.py <br>
   `cd <path>` 
 5. In the terminal start the program (You should see a list of the available hotkeys)<br>
@@ -86,7 +87,7 @@ All hotkeys used after copying their respective information to your clipboard, t
 ### `ctrl+win+shift+v`: Duplicate Format (MacOS Cmd Key)
 - This hotkey takes the url for a hive case and optionally the case number and formates into a duplicate hive case link.
 - To add the case number, copy it to your clipboard and then use the `Extra Text` hotkey to store it. Then copy the url and use this hotkey.
-- <span style="color: green">Duplicate of \[Hive Case #{value stored with the Extra Text Hotkey}\](https[://]hive.cyber.tamus[.]edu/)</span>
+- <span style="color: red">hiveCase.URL</span> → <span style="color: green">Duplicate of \[Hive Case #{value stored with the Extra Text Hotkey}\](hiveCase.URL)</span>
 
 ### `ctrl+alt+shift+a`: Extra Text Format
 - This hotkey stores your clipboard for another hotkey to use later.
@@ -98,14 +99,27 @@ All hotkeys used after copying their respective information to your clipboard, t
 - This hotkey is to store additional info, currently only used to store the User Department in the `Person Info` hotkey.
 
 ### `ctrl+alt+c`: Column Format
+- This hotkey takes a column from discover and puts each entry in backticks( \` ). This version cuts off the first and last charcter of each entry since copying a column from discover has quotes( " ) around the values.
+- Will also put anything stored with the Extra Text hotkey at the start of the column. 
+
 
 ### `ctrl+win+c`: Column Format - Non Destructive (MacOS Cmd Key)
+- This hotkey is the same as Column Format but doesnt remove the first and last character of each entry.
 
 ### `ctrl+alt+d`: Discover Link Format
+- This hotkey takes the link to discover and makes the hyperlink format.
+- <span style="color: red">discovertab.URL</span> → <span style="color: green">This \[Discover tab\](discovertab.URL) shows</span>
 
 ### ``ctrl+` ``: Quote Format
+- This hotkey puts what ever you have copied into backticks( \` ).<br>
+&ensp; eg. <br>
+&ensp; &ensp; <span style="color: red"> exampleText</span> → <span style="color: green">\`exampleText\`</span>
 
 ### `ctrl+alt+p`: Person Info Format
+- This hotkey takes the hyperlink to people finder and adds text to have the users title and department listed easily.
+- Optionally will put the user name, title, and department into the formated text. <br>
+&ensp; eg. <br>
+&ensp; &ensp; <span style="color: red">people\finder.URL</span> → <span style="color: green">\[{Extra Text}\](people\finder.URL) is a \`{Extra Text 1}\` in the \`{Extra Text 2}\` department.</span>
 
 ### `ctrl+alt+h`: Hive Search Format
 
@@ -118,9 +132,20 @@ All hotkeys used after copying their respective information to your clipboard, t
 ### `ctrl+alt+z`: Two Column Format
 
 ### `ctrl+alt+u`: Unique Columns Format
+
+### `ctrl+alt+b`: Discover Row with Backticking
 - This hotkey puts backticks( \` ) around each field when copying from a row in discover. <br>
 &ensp; eg. <br>
 &ensp; &ensp; <span style="color: red"> Timestamp @ 10 \t exampleField1 \t example field 2</span> → <span style="color: green">\`Timestamp @ 10\` \`exampleField1\` \`example field 2\`</span>
 - Also works with any tab deliniated line.
+
+### `ctrl+alt+shift+t`: Timeline Process and Command Format
+- This hotkey takes a copied line from the timeline view and puts the process in backticks( \` ) and puts the command on a new line. By combining the process args together and puts the command in backticks( \` ) as well. <br>
+&ensp; eg.
+&ensp;&ensp; <span style="color: red">process.exe \n (process.pid field) \n processArg1 \n porcessArg2 \n ect.</span> <br>
+&ensp;&ensp; &#8627; <span style="color: green">{Type if this is the Process or the Parent from the timeline view}\`process.exe\`<br>
+&ensp;&ensp; &#8627; <span style="color: green">Command \`processArg1 processArg2 ect.\`</span>
+- This is used on the line within the timeline view that has <br>
+`user.name` \\ `user.domain` @ `host.name` in `process.working_directory` started process `process.name` `process.pid` `process.args` with exit code `process.exit_code` via parent process `process.parent.name` `process.parent.pid` with result `event.outcome`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
