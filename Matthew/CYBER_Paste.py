@@ -270,10 +270,11 @@ def source_dest_IP():
         print("Error Formatting Source-Destination")
 
 def two_column():
-    global firstText
+    global extraText1
+    column()
     clipboard_text = pyperclip.paste()
     lines = clipboard_text.splitlines()
-    left = firstText.splitlines()
+    left = extraText1.splitlines()
 
     if len(lines) != len(left):
         print("Unequal Lengths")
@@ -290,6 +291,8 @@ def two_column():
 def unique():
     clipboard_text = pyperclip.paste()
     lines = clipboard_text.splitlines()
+
+    column()
 
     unique_text = set(lines) 
     output = "\n".join(unique_text)
@@ -334,7 +337,7 @@ print("ctrl+`: Quote Format")
 print("ctrl+alt+p: Person Info Format")
 print("ctrl+alt+h: Hive Search Format")
 print("ctrl+alt+q: Add Parent Format") 
-print("ctrl+alt+r: Remove ' - ' Crom Column Format")
+print("ctrl+alt+r: Remove ' - ' From Column Format")
 print("ctrl+alt+shift+w: Source-Destination IP Format")
 print("ctrl+alt+z: Two Column Format")
 print("ctrl+alt+u: Unique Columns Format")
@@ -377,7 +380,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+<shift>+v': obs_statement,
         '<ctrl>+<cmd>+<shift>+v': dupe_statement,
         '<ctrl>+<alt>+c': column,
-        '<ctrl>+<cmd>+c': column(2),
+        '<ctrl>+<cmd>+c': lambda: column(2),
         '<ctrl>+<alt>+<shift>+a': extra_text,
         '<ctrl>+<alt>+1': extra_text1,
         '<ctrl>+<alt>+2': extra_text2,

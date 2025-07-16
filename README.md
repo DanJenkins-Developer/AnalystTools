@@ -48,7 +48,7 @@
 <!-- USAGE EXAMPLES -->
 
 ## Notes on Formatting
-Anytime \t or \n is seen, this is to show the formatting kibana has for the respective object, if you just copy and pasted it, and does not need to be added to get the hotkeys to function properly.
+Anytime \s(space) \t(tab) or \n(newline) is seen, this is to show the formatting kibana has for the respective object, if you just copy and pasted it, and does not need to be added to get the hotkeys to function properly.
 
 Arrows( → , &#8627; ) indicate what that line is transformed into after the hotkey. Arrows( → , &#8627; ) without anything to their left indicates that this hotkey inserts the stuff on the right of the Arrow( → , &#8627; ) in its formatting process. 
 
@@ -122,16 +122,28 @@ All hotkeys used after copying their respective information to your clipboard, t
 &ensp; &ensp; <span style="color: red">people\finder.URL</span> → <span style="color: green">\[{Extra Text}\](people\finder.URL) is a \`{Extra Text 1}\` in the \`{Extra Text 2}\` department.</span>
 
 ### `ctrl+alt+h`: Hive Search Format
+- This hotkey puts the copied text into a format to search in hive.
+- ie. put astricks( * ) around each word and replacing special characters( - \s \\ _ ) with astricks( * ) as well.
 
 ### `ctrl+alt+q`: Add Parent Format 
+- This hotkey puts .parent inbetween process and name or pid for discover queries. <br>
+&ensp; eg. <br>
+&ensp; &ensp; <span style="color: red">(process.name: example.exe and process.pid: 1234)</span> → <span style="color: green">(process.parent.name: example.exe and process.parent.pid: 1234)</span>
 
-### `ctrl+alt+r`: Remove ' - ' Crom Column Format
+### `ctrl+alt+r`: Remove ' - ' From Column Format
+- This hotkey removes any blank lines when copying a coulmn from discover. This will also put backticks( \` ) around each row.
 
 ### `ctrl+alt+shift+w`: Source-Destination IP Format
+- This hotkey takes the ip info from the timeline view and formats it nicely. <br>
+&ensp; eg. <br>
+&ensp; &ensp; <span style="color: red">source 123.456.7.890 : 1234, destination 098.765.4.321 : 4321</span> → <span style="color: green">Source \`123.456.7\[.\]890\` : \`1234\` \n Destination \`098.765.4\[.\]321\` : \`4321\`</span>
 
 ### `ctrl+alt+z`: Two Column Format
+- This hotkey puts two columns next to each other with a vertical line( | ) between the two columns.
+- The coulmn that you want on the left should be stored by fromatting into column format and then use the `Extra Text 1` Hotkey. Then copy your new column and use this hotkey and it will format your right hand column and put the two columns next to each other.
 
 ### `ctrl+alt+u`: Unique Columns Format
+- This hotkey will remove duplicate entries in the column format. This will also put backticks( \` ) around each row.
 
 ### `ctrl+alt+b`: Discover Row with Backticking
 - This hotkey puts backticks( \` ) around each field when copying from a row in discover. <br>
