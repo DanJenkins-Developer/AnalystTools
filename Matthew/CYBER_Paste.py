@@ -181,6 +181,9 @@ def extra_text2():
     extraText2 = pyperclip.paste().strip()
 
 def person_info():
+    if shift:
+        return False
+    
     global firstText
     global extraText1
     global extraText2
@@ -284,7 +287,7 @@ def two_column():
     for i in range(0,len(lines)):
         output += left[i] + " | " + lines[i] + "\n"
 
-    firstText = "" 
+    extraText1 = "" 
     pyperclip.copy(output)
     # print("Two Column Format copied to clipboard!")
 
@@ -323,6 +326,14 @@ def timeline_proc_cmd():
     pyperclip.copy(formated_text)
     # print("Timeline Process and Command Format Copied to Clipboard!")
 
+def phish_obs_statement():
+    clipboard_text = pyperclip.paste()
+    lines = clipboard_text.splitlines()
+
+    formated_text = lines[2][:5].strip() + " with " + lines[2][5:].strip() + " from " + lines[1][18:].strip() + " sent to " + lines[0][16:].strip() + " was flagged as a Phishing Email by " + lines[-1][14:].strip() + "."
+
+    pyperclip.copy(formated_text)
+
 print("Ready to Format")
 print("ctrl+alt+v: Format")
 print("ctrl+alt+shift+v: Observation Statement Format")
@@ -343,6 +354,7 @@ print("ctrl+alt+z: Two Column Format")
 print("ctrl+alt+u: Unique Columns Format")
 print("ctrl+alt+b: Discover Row with Backticks Format")
 print("ctrl+alt+shift+t: Timeline Process and Command Format")
+print("ctrl+alt+shift+p: Phishing Observation Statement Format")
 
 def exit():
     listener.stop()
@@ -395,6 +407,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+u': unique,
         '<ctrl>+<alt>+b': discover_row_backticking,
         '<ctrl>+<alt>+<shift>+t': timeline_proc_cmd,
+        '<ctrl>+<alt>+<shift>+p': phish_obs_statement,
         '<ctrl>+<alt>+<shift>+<esc>': exit}) as listener:
     listener.join()
 

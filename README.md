@@ -160,4 +160,14 @@ All hotkeys used after copying their respective information to your clipboard, t
 - This is used on the line within the timeline view that has <br>
 `user.name` \\ `user.domain` @ `host.name` in `process.working_directory` started process `process.name` `process.pid` `process.args` with exit code `process.exit_code` via parent process `process.parent.name` `process.parent.pid` with result `event.outcome`
 
+### `ctrl+alt+shift+p`: Phishing Email Observationg Statement Format
+- This hotkey takes the Email To Address, Email From Address Email Subject, and Email Reporter fields to write an observation statement. <br>
+&ensp; eg. <br>
+&ensp; &ensp; <span style="color: red">Email To Address \`example@address.ex1\`</span> <br>
+&ensp; &ensp; <span style="color: red">Email From Address \`example@address.ex2\`</span> <br>
+&ensp; &ensp; <span style="color: red">Email Subject \`exampleSubject\`</span> <br>
+&ensp; &ensp; <span style="color: red">{any number of inrelevant lines, your choice based off what you copy}</span> <br>
+&ensp; &ensp; <span style="color: red">Email Reporter \`example@address.ex3\`</span> <br>
+&ensp; &ensp; &#8627; <span style="color: green">Email with Subject \`exampleSubject\` from  \`example@address.ex2\` sent to \`example@address.ex1\` was flagged as a Phishing Email by \`example@address.ex3\`.</span>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
