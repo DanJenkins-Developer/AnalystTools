@@ -16,6 +16,8 @@ def format_data(text):
         pass
     elif text == "Endpoint.policy.applied.artifacts.global.channel	candidate":
         pass
+    elif text == "Endpoint.policy.applied.artifacts.global.channel	default":
+        pass
     elif text == "Field\tValue":
         pass
     else: 
