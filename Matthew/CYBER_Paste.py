@@ -12,6 +12,8 @@ def format_data(text):
     elif text == "agent.status	Unhealthy":
         # print("agent status removed")
         pass
+    elif text == "agent.status	Updating":
+        pass
     elif text == "Endpoint.policy.applied.artifacts.global.channel	stable":
         pass
     elif text == "Endpoint.policy.applied.artifacts.global.channel	candidate":
