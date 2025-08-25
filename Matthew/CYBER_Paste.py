@@ -3,6 +3,8 @@ from pynput import keyboard
 import re
 
 def format_data(text):
+    if text[0] == "\t":
+        text = text[1:]
     if text == "agent.status	Offline":
         # print("agent status removed")
         pass
@@ -11,6 +13,8 @@ def format_data(text):
         pass
     elif text == "agent.status	Unhealthy":
         # print("agent status removed")
+        pass
+    elif text == "agent.status	Inactive":
         pass
     elif text == "agent.status	Updating":
         pass
