@@ -90,7 +90,7 @@ All hotkeys used after copying their respective information to your clipboard, t
 - To add the case number, copy it to your clipboard and then use the `Extra Text` hotkey to store it. Then copy the url and use this hotkey.
 - <span style="color: red">hiveCase.URL</span> → <span style="color: green">Duplicate of \[Hive Case #{value stored with the Extra Text Hotkey}\](hiveCase.URL)</span>
 
-### `ctrl+alt+shift+a`: Extra Text Format
+### `ctrl+alt+shift+x`: Extra Text Format
 - This hotkey stores your clipboard for another hotkey to use later.
 
 ### `ctrl+alt+1`: Extra Text 1 Format
