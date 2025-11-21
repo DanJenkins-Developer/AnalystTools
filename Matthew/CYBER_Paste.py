@@ -342,11 +342,18 @@ def phish_obs_statement():
 
     pyperclip.copy(formated_text)
 
+def link():
+    clipboard_text = pyperclip.paste()
+
+    formated_text = "[" + extra_text + "](" + clipboard_text.strip() + ") " + extra_text1
+
+    pyperclip.copy(formated_text)
+
 print("Ready to Format")
 print("ctrl+alt+v: Format")
 print("ctrl+alt+shift+v: Observation Statement Format")
 print("ctrl+win+shift+v: Duplicate Format (MacOS Cmd Key)")
-print("ctrl+alt+shift+a: Extra Text Format")
+print("ctrl+alt+shift+x: Extra Text Format")
 print("ctrl+alt+1: Extra Text 1 Format")
 print("ctrl+alt+2: Extra Text 2 Format")
 print("ctrl+alt+c: Column Format")
@@ -363,6 +370,7 @@ print("ctrl+alt+u: Unique Columns Format")
 print("ctrl+alt+b: Discover Row with Backticks Format")
 print("ctrl+alt+shift+t: Timeline Process and Command Format")
 print("ctrl+alt+shift+p: Phishing Observation Statement Format")
+print("alt+l: Link Format")
 
 def exit():
     listener.stop()
@@ -401,7 +409,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<cmd>+<shift>+v': dupe_statement,
         '<ctrl>+<alt>+c': column,
         '<ctrl>+<cmd>+c': lambda: column(2),
-        '<ctrl>+<alt>+<shift>+a': extra_text,
+        '<ctrl>+<alt>+<shift>+x': extra_text,
         '<ctrl>+<alt>+1': extra_text1,
         '<ctrl>+<alt>+2': extra_text2,
         '<ctrl>+<alt>+d': discover_link,
@@ -416,6 +424,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+b': discover_row_backticking,
         '<ctrl>+<alt>+<shift>+t': timeline_proc_cmd,
         '<ctrl>+<alt>+<shift>+p': phish_obs_statement,
+        '<alt>+l': link(),
         '<ctrl>+<alt>+<shift>+<esc>': exit}) as listener:
     listener.join()
 
