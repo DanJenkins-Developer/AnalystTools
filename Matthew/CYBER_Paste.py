@@ -343,9 +343,14 @@ def phish_obs_statement():
     pyperclip.copy(formated_text)
 
 def link():
+    global firstText
+    global extraText1
     clipboard_text = pyperclip.paste()
 
-    formated_text = "[" + extra_text + "](" + clipboard_text.strip() + ") " + extra_text1
+    formated_text = "[" + firstText + "](" + clipboard_text.strip() + ") " + extraText1
+
+    firstText = ""
+    extraText1 = ""
 
     pyperclip.copy(formated_text)
 
@@ -424,7 +429,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+b': discover_row_backticking,
         '<ctrl>+<alt>+<shift>+t': timeline_proc_cmd,
         '<ctrl>+<alt>+<shift>+p': phish_obs_statement,
-        '<alt>+l': link(),
+        '<alt>+l': link,
         '<ctrl>+<alt>+<shift>+<esc>': exit}) as listener:
     listener.join()
 

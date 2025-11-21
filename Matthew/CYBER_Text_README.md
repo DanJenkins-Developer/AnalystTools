@@ -171,6 +171,12 @@ All hotkeys used after copying their respective information to your clipboard, t
 &ensp; &ensp; <span style="color: red">Email Reporter \`example@address.ex3\`</span> <br>
 &ensp; &ensp; &#8627; <span style="color: green">Email with Subject \`exampleSubject\` from  \`example@address.ex2\` sent to \`example@address.ex1\` was flagged as a Phishing Email by \`example@address.ex3\`.</span>
 
+### `alt+l`: Link Format
+- This hotkey takes the url for a website case and optionally the link name and text after the link and formates into a hyperlink.
+- To add the link name, copy it to your clipboard and then use the `Extra Text` hotkey to store it. 
+- To add text after the link, copy it to your clipboard and then use the `Extra Text 1` hotkey to store it.  Then copy the url and use this hotkey.
+- <span style="color: red">website.URL</span> → <span style="color: green">\[{value stored with the Extra Text Hotkey}\](website.URL) {value stored with the Extra Text 1 Hotkey}</span>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
