@@ -182,8 +182,7 @@ All hotkeys used after copying their respective information to your clipboard, t
 - To add maliciousness and popular threat label, copy the ratio of vendors flagging over vendors testing to your clipboard and then use the `Extra Text 1` hotkey to store it. Next
 copy the popular threat label and use the `Extra Text 2` hotkey to store it. Need both to get this variation of the format.
 - Then copy the url and use this hotkey.
-- <span style="color: red">website.URL</span>, nothing stored in `Extra Text 2` → <span style="color: green">\[VT\](website.URL) shows \`{value stored with firstText}\` is nonmalicious 
-</span>
+- <span style="color: red">website.URL</span>, nothing stored in `Extra Text 2` → <span style="color: green">\[VT\](website.URL) shows \`{value stored with firstText}\` is nonmalicious</span>
 - <span style="color: red">website.URL</span>, something stored in `Extra Text 2` → <span style="color: green">\[VT\](website.URL) shows {value stored in extraText1 (will look like x/y)} vendors flag \`{value stored in firstText}\` as malicious with \`{value stored in extraText2}\` being a popular threat label.</span>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
