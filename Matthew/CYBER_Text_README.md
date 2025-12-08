@@ -72,7 +72,7 @@ All hotkeys used after copying their respective information to your clipboard, t
 &ensp; &ensp; → <span style="color: green">{empty line}</span><br>
 &ensp; &ensp; <span style="color: red">process.executable \t exampleProcess.exe</span> → <span style="color: green">Process Executable \`exampleProcess.exe\`</span>
 - Removes extrenous parts of field names: Events, events, text, pe, name, or process if the next word is parent or command
-- Removes uninteresting fields from the overview tab: agent.status, or Endpoint.policy.applied.artifacts.global.channel
+- Removes uninteresting fields from the overview tab: agent.status, Endpoint.policy.applied.artifacts.global.channel, or Source Event
 
 ### `ctrl+alt+shift+v`: Observation Statement Format 
 - This hotkey takes the host, user, group and the last line copied and converts it into my standard Observation Statement format <br>
@@ -172,10 +172,21 @@ All hotkeys used after copying their respective information to your clipboard, t
 &ensp; &ensp; &#8627; <span style="color: green">Email with Subject \`exampleSubject\` from  \`example@address.ex2\` sent to \`example@address.ex1\` was flagged as a Phishing Email by \`example@address.ex3\`.</span>
 
 ### `alt+l`: Link Format
-- This hotkey takes the url for a website case and optionally the link name and text after the link and formates into a hyperlink.
+- This hotkey takes the url for a website and optionally the link name and text after the link and formates into a hyperlink.
 - To add the link name, copy it to your clipboard and then use the `Extra Text` hotkey to store it. 
 - To add text after the link, copy it to your clipboard and then use the `Extra Text 1` hotkey to store it.  Then copy the url and use this hotkey.
 - <span style="color: red">website.URL</span> → <span style="color: green">\[{value stored with the Extra Text Hotkey}\](website.URL) {value stored with the Extra Text 1 Hotkey}</span>
+
+### `alt+shift+s`: Virus Total Format
+- This hotkey takes the url for Virus Total, the process or file your checking and optionally the maliciousness and popular threat label and formates into a hyperlink.
+- To add the process or file name, copy it to your clipboard and then use the `Extra Text` hotkey to store it. 
+- To add maliciousness and popular threat label, copy the ratio of vendors flagging over vendors testing to your clipboard and then use the `Extra Text 1` hotkey to store it. Next
+copy the popular threat label and use the `Extra Text 2` hotkey to store it. Need both to get this variation of the format.
+- Then copy the url and use this hotkey.
+- <span style="color: red">website.URL</span>, nothing stored in `Extra Text 2` → <span style="color: green">\[VT\](website.URL) shows \`{value stored with firstText}\` is nonmalicious 
+</span>
+- <span style="color: red">website.URL</span>, something stored in `Extra Text 2` → <span style="color: green">\[VT\](website.URL) shows {value stored in extraText1 (will look like x/y)} vendors flag \`{value stored in firstText}\` as malicious with \`{value stored in extraText2}\` being a popular threat label.</span>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

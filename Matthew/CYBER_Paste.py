@@ -26,6 +26,8 @@ def format_data(text):
         pass
     elif text == "Field\tValue":
         pass
+    elif re.search(r"Source event*", text):
+        pass
     else: 
         words = text.split("\t")
         impoWrds1 = words[0].split(".")
@@ -106,8 +108,8 @@ def obs_statement():
         # Copy the formatted text to the clipboard
         pyperclip.copy(formatted_text)
         # print("Observation Statement Formatted text copied to clipboard!")
-    except:
-        print("Error Formatting Observation Statement")
+    except Exception as e:
+        print("Error Formatting Observation Statement", e)
 
 def dupe_statement():
     global firstText
@@ -354,6 +356,23 @@ def link():
 
     pyperclip.copy(formated_text)
 
+def vtFormat():
+    global firstText
+    global extraText1
+    global extraText2
+    clipboard_text = pyperclip.paste()
+
+    if extraText2 != "":
+        formated_text = "[VT](" + clipboard_text.strip() + ") shows " + extraText1 + " vendors flag `" + firstText + "` as malicious with `" + extraText2 + "` being a popular threat label."
+    else:
+        formated_text = "[VT](" + clipboard_text.strip() + ") shows `" + firstText + "` is nonmalicious "
+
+    firstText = ""
+    extraText1 = ""
+    extraText2 = ""
+
+    pyperclip.copy(formated_text)
+
 print("Ready to Format")
 print("ctrl+alt+v: Format")
 print("ctrl+alt+shift+v: Observation Statement Format")
@@ -376,6 +395,7 @@ print("ctrl+alt+b: Discover Row with Backticks Format")
 print("ctrl+alt+shift+t: Timeline Process and Command Format")
 print("ctrl+alt+shift+p: Phishing Observation Statement Format")
 print("alt+l: Link Format")
+print("ctrl+alt+s: Virus Total Link Format")
 
 def exit():
     listener.stop()
@@ -430,6 +450,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+<shift>+t': timeline_proc_cmd,
         '<ctrl>+<alt>+<shift>+p': phish_obs_statement,
         '<alt>+l': link,
+        '<ctrl>+<alt>+s': vtFormat,
         '<ctrl>+<alt>+<shift>+<esc>': exit}) as listener:
     listener.join()
 
