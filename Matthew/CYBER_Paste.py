@@ -373,6 +373,27 @@ def vtFormat():
 
     pyperclip.copy(formated_text)
 
+def exceptionFormat():
+    clipboard_text = pyperclip.paste()
+    lines = clipboard_text.splitlines()
+    
+    del lines[1:12] 
+    formated_text = "Current Exception: `" + lines[0] + "`\n"
+    for i in range(1,len(lines)):
+        if lines[i][:4] == "AND ":
+            lines[i] = lines[i][4:]
+        if lines[i][:4] == "OSIS":
+            lines[i] = "OS IS" + lines[i][4:]
+        elif lines[i][:12] == "event.codeIS":
+            lines[i] = "event.code IS" + lines[i][12:]
+        elif lines[i][:11] == "file.pathIS":
+            lines[i] = "file.path IS" + lines[i][11:]
+
+            
+        formated_text += lines[i] + "\n"  
+
+    pyperclip.copy(formated_text)
+
 print("Ready to Format")
 print("ctrl+alt+v: Format")
 print("ctrl+alt+shift+v: Observation Statement Format")
@@ -396,6 +417,7 @@ print("ctrl+alt+shift+t: Timeline Process and Command Format")
 print("ctrl+alt+shift+p: Phishing Observation Statement Format")
 print("alt+l: Link Format")
 print("ctrl+alt+s: Virus Total Link Format")
+print("ctrl+alt+e: Current Exception Format")
 
 def exit():
     listener.stop()
@@ -451,6 +473,7 @@ with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+<shift>+p': phish_obs_statement,
         '<alt>+l': link,
         '<ctrl>+<alt>+s': vtFormat,
+        '<ctrl>+<alt>+e': exceptionFormat,
         '<ctrl>+<alt>+<shift>+<esc>': exit}) as listener:
     listener.join()
 

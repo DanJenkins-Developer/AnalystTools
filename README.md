@@ -185,4 +185,7 @@ copy the popular threat label and use the `Extra Text 2` hotkey to store it. Nee
 - <span style="color: red">website.URL</span>, nothing stored in `Extra Text 2` → <span style="color: green">\[VT\](website.URL) shows \`{value stored with firstText}\` is nonmalicious</span>
 - <span style="color: red">website.URL</span>, something stored in `Extra Text 2` → <span style="color: green">\[VT\](website.URL) shows {value stored in extraText1 (will look like x/y)} vendors flag \`{value stored in firstText}\` as malicious with \`{value stored in extraText2}\` being a popular threat label.</span>
 
+### `alt+shift+e`: Current Exception Format
+- This hotkey takes the text from the exception lists and formats it nicely. It removes the extreneous information, keeping only the exception name and the logic behind the exception.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
