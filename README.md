@@ -188,4 +188,9 @@ copy the popular threat label and use the `Extra Text 2` hotkey to store it. Nee
 ### `alt+shift+e`: Current Exception Format
 - This hotkey takes the text from the exception lists and formats it nicely. It removes the extreneous information, keeping only the exception name and the logic behind the exception.
 
+### `alt+shift+cmd+a`: Alert Name Format
+- This hotkey takes the host name saved with the First Text hotkey and puts the pipe(`|`) between the alert name that is copied.
+- This wil also put a second host name after the first if its saved with the Extra Text1 hotkey.
+- If nothing is stored with the First Text hotkey, it will put Multiple Hosts in its place.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
