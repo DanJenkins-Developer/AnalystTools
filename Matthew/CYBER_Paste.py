@@ -380,17 +380,37 @@ def exceptionFormat():
     del lines[1:12] 
     formated_text = "Current Exception: `" + lines[0] + "`\n"
     for i in range(1,len(lines)):
+        if "IS " in lines[i]:
+            index = lines[i].find("IS ")
+            lines[i] = lines[i][:index] + " " + lines[i][index:] 
+        elif "IS ONE OF " in lines[i]:
+            index = lines[i].find("IS ONE OF ")
+            lines[i] = lines[i][:index] + " " + lines[i][index:] 
+        elif "is one of " in lines[i]:
+            index = lines[i].find("is one of ")
+            lines[i] = lines[i][:index] + " " + lines[i][index:] 
+        elif "MATCHES " in lines[i]:
+            index = lines[i].find("MATCHES ")
+            lines[i] = lines[i][:index] + " " + lines[i][index:] 
+        
         if lines[i][:4] == "AND ":
             lines[i] = lines[i][4:]
-        if lines[i][:4] == "OSIS":
-            lines[i] = "OS IS" + lines[i][4:]
-        elif lines[i][:12] == "event.codeIS":
-            lines[i] = "event.code IS" + lines[i][12:]
-        elif lines[i][:11] == "file.pathIS":
-            lines[i] = "file.path IS" + lines[i][11:]
-
             
         formated_text += lines[i] + "\n"  
+
+    pyperclip.copy(formated_text)
+
+def alertNameFormat():
+    global firstText
+    global extraText1
+    clipboard_text = pyperclip.paste()
+    if firstText != "":
+        if extraText1 != "":
+            formated_text = firstText + " " + extraText1 + " | " + clipboard_text
+        else:
+            formated_text = firstText + " | " + clipboard_text
+    else: 
+        formated_text = "Multiple Hosts | " + clipboard_text
 
     pyperclip.copy(formated_text)
 
@@ -418,6 +438,7 @@ print("ctrl+alt+shift+p: Phishing Observation Statement Format")
 print("alt+l: Link Format")
 print("ctrl+alt+s: Virus Total Link Format")
 print("ctrl+alt+e: Current Exception Format")
+print("ctrl+alt+win+a: Alert Name Format")
 
 def exit():
     listener.stop()
@@ -474,6 +495,7 @@ with keyboard.GlobalHotKeys({
         '<alt>+l': link,
         '<ctrl>+<alt>+s': vtFormat,
         '<ctrl>+<alt>+e': exceptionFormat,
+        '<ctrl>+<alt>+<cmd>+a': alertNameFormat,
         '<ctrl>+<alt>+<shift>+<esc>': exit}) as listener:
     listener.join()
 
