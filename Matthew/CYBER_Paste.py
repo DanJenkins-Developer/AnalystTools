@@ -13,6 +13,15 @@ def format_data(text):
                 frmtStr += link + "\n"
         frmtStr += "```"
         return frmtStr
+    if text[:17] == "email.attachments":
+        frmtStr = "Email Attachments:\n"
+        attachments = re.split(r"{|}", text[18:])
+        for attachment in attachments:
+            if attachment:
+                attInfo = attachment.split(",")
+                frmtStr += "File Name `" + attInfo[2][13:-2] + "`\nFile Hash Sha256 `" + attInfo[1][20:-2]+ "`\n"
+        return frmtStr
+        
     if text == "agent.status	Offline":
         # print("agent status removed")
         pass
