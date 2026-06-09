@@ -5,6 +5,14 @@ import re
 def format_data(text):
     if text[0] == "\t":
         text = text[1:]
+    if text[:15] == "email.urls.data":
+        links = re.split(r'(?=https?://)', text[16:])
+        frmtStr = "Email Urls Data:\n```\n"
+        for link in links:
+            if link:
+                frmtStr += link + "\n"
+        frmtStr += "```"
+        return frmtStr
     if text == "agent.status	Offline":
         # print("agent status removed")
         pass
@@ -413,6 +421,8 @@ def alertNameFormat():
         formated_text = "Multiple Hosts | " + clipboard_text
 
     pyperclip.copy(formated_text)
+    firstText = ""
+    extraText1 = ""
 
 print("Ready to Format")
 print("ctrl+alt+v: Format")
