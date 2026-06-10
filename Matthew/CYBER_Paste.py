@@ -19,7 +19,7 @@ def format_data(text):
         for attachment in attachments:
             if attachment:
                 attInfo = attachment.split(",")
-                frmtStr += "File Name `" + attInfo[2][13:-2] + "`\nFile Hash Sha256 `" + attInfo[1][20:-2]+ "`\n"
+                frmtStr += "File Name `" + attInfo[2][14:-2] + "`\nFile Hash Sha256 `" + attInfo[1][21:-2]+ "`\n"
         return frmtStr
         
     if text == "agent.status	Offline":
