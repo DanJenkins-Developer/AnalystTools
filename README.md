@@ -63,26 +63,27 @@ All hotkeys used after copying their respective information to your clipboard, t
 - This hotkey takes alert fields and capitalizes and adds spaces to the field name and puts the feild content in backticks. It will apply the formating to as many lines as you have copied from the alert tab. <br>
 &ensp;   eg. <br>
 &ensp; &ensp; <span style="color: red">this.example.field \t field content</span> → <span style="color: green">This Example Field \`field content\`</span>
-- Adds Group \`\` on a new line under the User field as well as adding a black line to seperate Host, User, and Group from the rest of the info that is copied at that time. <br>
+- Adds Namespace \`\` on a new line under the User field as well as adding a black line to seperate Host, User, and Namespace from the rest of the info that is copied at that time. <br>
 &ensp; eg. <br>
 &ensp; &ensp; <span style="color: red">host.name \t exampleHost</span> → <span style="color: green">Host \`exampleHost\`</span> <br>
 &ensp; &ensp; <span style="color: red">user.name \t exampleUser</span> → <span style="color: green">User \`exampleUser\`</span> <br>
-&ensp; &ensp; → <span style="color: green">Group ``</span><br>
+&ensp; &ensp; → <span style="color: green">Namespace ``</span><br>
 &ensp; &ensp; → <span style="color: green">{empty line}</span><br>
 &ensp; &ensp; <span style="color: red">process.executable \t exampleProcess.exe</span> → <span style="color: green">Process Executable \`exampleProcess.exe\`</span>
 - Removes extrenous parts of field names: Events, events, text, pe, name, or process if the next word is parent or command
 - Removes uninteresting fields from the overview tab: agent.status, Endpoint.policy.applied.artifacts.global.channel, or Source Event
 
 ### `ctrl+alt+shift+v`: Observation Statement Format 
-- This hotkey takes the host, user, group and the last line copied and converts it into my standard Observation Statement format <br>
+- This hotkey takes the host, user, namespace and the last line copied and converts it into my standard Observation Statement format <br>
 &ensp; eg. <br>
 &ensp; &ensp; <span style="color: red">Host \`exampleHost\`</span> <br>
 &ensp; &ensp; <span style="color: red">User \`exampleUser\`</span> <br>
-&ensp; &ensp; <span style="color: red">Group \`exampleGroup\`</span> <br>
+&ensp; &ensp; <span style="color: red">Namespace \`exampleNsp\`</span> <br>
 &ensp; &ensp; <span style="color: red">{any number of inrelevant lines, your choice based off what you copy}</span> <br>
 &ensp; &ensp; <span style="color: red">Process Executable \`exampleProcess.exe\`</span> <br>
 &ensp; &ensp; <span style="color: red">File Path \`exampleFile.path\`</span> <br>
-&ensp; &ensp; &#8627; <span style="color: green">File Path \`exampleFile.path\` flagged for {you would insert the alert name here} on Host \`exampleHost\` under User \`exampleUser\` at Group \`exampleGroup\`.</span>
+&ensp; &ensp; &#8627; <span style="color: green">File Path \`exampleFile.path\` flagged for {you would insert the alert name here} on Host \`exampleHost\` under User \`exampleUser\` at Namespace \`exampleNsp\`.</span>
+
 
 ### `ctrl+win+shift+v`: Duplicate Format (MacOS Cmd Key)
 - This hotkey takes the url for a hive case and optionally the case number and formates into a duplicate hive case link.
@@ -192,5 +193,17 @@ copy the popular threat label and use the `Extra Text 2` hotkey to store it. Nee
 - This hotkey takes the host name saved with the First Text hotkey and puts the pipe(`|`) between the alert name that is copied.
 - This wil also put a second host name after the first if its saved with the Extra Text1 hotkey.
 - If nothing is stored with the First Text hotkey, it will put Multiple Hosts in its place.
+
+### `alt+ctrl+numpad`: STA and PCA Format
+- This hotkey auto pastes several frequently typed phrases wherever the cursor is.
+1. STA agrees with analysts assessment, closing as a false positive for documentation.
+2. STA agrees with analysts assessment, closing as a false positive and tagging for detection review.
+3. STA agrees with analysts assessment, closing as a phish false positive.
+4. STA agrees with analysts assessment, escalating to IH
+5. STA agrees with analysts assessment, closing as a phish spam.
+6. N/A
+7. PCA: Close as a false positive for documentation.
+8. PCA: Close as a false positive and tag for detection review.
+9. PCA: Escalate to IH for 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

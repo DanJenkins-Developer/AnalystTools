@@ -1,10 +1,29 @@
 import pyperclip
 from pynput import keyboard
+from pynput.keyboard import Controller
 import re
+import time 
 
 def format_data(text):
     if text[0] == "\t":
         text = text[1:]
+    if text[:15] == "email.urls.data":
+        links = re.split(r'(?=https?://)', text[16:])
+        frmtStr = "Email Urls Data:\n```\n"
+        for link in links:
+            if link:
+                frmtStr += link + "\n"
+        frmtStr += "```"
+        return frmtStr
+    if text[:17] == "email.attachments":
+        frmtStr = "Email Attachments:\n"
+        attachments = re.split(r"{|}", text[18:])
+        for attachment in attachments:
+            if attachment:
+                attInfo = attachment.split(",")
+                frmtStr += "File Name `" + attInfo[2][14:-2] + "`\nFile Hash Sha256 `" + attInfo[1][21:-2]+ "`\n"
+        return frmtStr
+        
     if text == "agent.status	Offline":
         # print("agent status removed")
         pass
@@ -61,7 +80,7 @@ def format_data(text):
         frmtStr += "`"
         # print(frmtStr)
         if impoWrds[0] == "user":
-            frmtStr += "\nGroup ``\n"
+            frmtStr += "\nNamespace ``\n"
         return frmtStr
 
 def formated_text():
@@ -413,6 +432,61 @@ def alertNameFormat():
         formated_text = "Multiple Hosts | " + clipboard_text
 
     pyperclip.copy(formated_text)
+    firstText = ""
+    extraText1 = ""
+
+kb_controller = Controller()
+
+def auto_paste():
+    kb_controller.release(keyboard.Key.alt)
+    kb_controller.release(keyboard.Key.alt_l)
+    kb_controller.release(keyboard.Key.alt_r)
+    time.sleep(0.3) 
+    kb_controller.press(keyboard.Key.ctrl)
+    kb_controller.press('v')
+    kb_controller.release('v')
+    kb_controller.release(keyboard.Key.ctrl)
+
+def numpad_one():
+    clipboard_text = 'STA agrees with analysts assessment, closing as a false positive for documentation.'
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
+def numpad_two():
+    clipboard_text = "STA agrees with analysts assessment, closing as a false positive and tagging for detection review."
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
+def numpad_three():
+    clipboard_text = "STA agrees with analysts assessment, closing as a phish false positive."
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
+def numpad_four():
+    clipboard_text = "STA agrees with analysts assessment, escalating to IH"
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
+def numpad_five():
+    clipboard_text = "STA agrees with analysts assessment, closing as a phish spam."
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
+def numpad_seven():
+    clipboard_text = "PCA: Close as a false positive for documentation."
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
+def numpad_eight():
+    clipboard_text = "PCA: Close as a false positive and tag for detection review."
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
+def numpad_nine():
+    clipboard_text = "PCA: Escalate to IH for "
+    pyperclip.copy(clipboard_text)
+    auto_paste()
+
 
 print("Ready to Format")
 print("ctrl+alt+v: Format")
@@ -439,6 +513,7 @@ print("alt+l: Link Format")
 print("ctrl+alt+s: Virus Total Link Format")
 print("ctrl+alt+e: Current Exception Format")
 print("ctrl+alt+win+a: Alert Name Format")
+print("ctrl+alt+numpad: STA and PCA Format")
 
 def exit():
     listener.stop()
@@ -446,25 +521,51 @@ def exit():
 print("ctrl+alt+shift+esc: Exit CYBER Paste")
 
 def on_press(key):  # The function that's called when a key is pressed
-    global shift
-    global cmd
-    # print("Pressed " + format(key))
-    if format(key) == "Key.shift":
+    # print(f"Key Pressed: {key}")  #Troubleshooting key presses
+    global shift, cmd, ctrl, alt
+
+    if key in (keyboard.Key.shift, keyboard.Key.shift_l, keyboard.Key.shift_r):
         shift = True
-    # if format(key) == "Key.cmd":
-    #     cmd = True
+
+    if key in (keyboard.Key.ctrl, keyboard.Key.ctrl_l, keyboard.Key.ctrl_r):
+        ctrl = True
+    
+    if key in (keyboard.Key.alt, keyboard.Key.alt_l, keyboard.Key.alt_r, keyboard.Key.alt_gr):
+        alt = True
+
+    if ctrl and alt and hasattr(key, 'vk'):
+        if key.vk == 97:
+            numpad_one()
+        elif key.vk == 98:
+            numpad_two()
+        elif key.vk == 99:
+            numpad_three()
+        elif key.vk == 100:
+            numpad_four()
+        elif key.vk == 101:
+            numpad_five()
+        elif key.vk == 103:
+            numpad_seven()
+        elif key.vk == 104:
+            numpad_eight()
+        elif key.vk == 105:
+            numpad_nine()
 
 def on_release(key):  # The function that's called when a key is pressed
-    global shift
-    global cmd
-    # print("Pressed " + format(key))
-    if format(key) == "Key.shift":
+    global shift, cmd, ctrl, alt
+
+    if key in (keyboard.Key.shift, keyboard.Key.shift_l, keyboard.Key.shift_r):
         shift = False
-    # if format(key) == "Key.cmd":
-    #     cmd = False
+    if key in (keyboard.Key.ctrl, keyboard.Key.ctrl_l, keyboard.Key.ctrl_r):
+        ctrl = False
+    if key in (keyboard.Key.alt, keyboard.Key.alt_l, keyboard.Key.alt_r, keyboard.Key.alt_gr):
+        alt = False
 
 shift = False
 cmd = False
+ctrl = False
+alt = False
+
 listener2 = keyboard.Listener(
         on_press=lambda event:on_press(event),
         on_release=lambda event:on_release(event))
